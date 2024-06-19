@@ -1,9 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Hello, World!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background GIF with Content Window</title>
+    <style>
+        body {
+            background-image: url('path/to/your/image.gif');
+            background-size: cover; /* Adjusts the background size */
+            background-repeat: no-repeat; /* Prevents the GIF from repeating */
+            background-position: center center; /* Centers the background */
+            background-attachment: fixed; /* Keeps the background fixed during scrolling */
+            height: 100vh; /* Ensures the body height covers the viewport */
+            margin: 0; /* Removes default margin */
+            overflow: hidden; /* Optional: prevents scrolling */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .content-window {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            border-radius: 10px; /* Rounded corners */
+            padding: 20px; /* Inner padding */
+            max-width: 80%; /* Maximum width of the window */
+            max-height: 80%; /* Maximum height of the window */
+            overflow-y: auto; /* Scrollbar for overflow content */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: adds a shadow for depth */
+        }
+    </style>
 </head>
 <body>
-  <p>Hello, World!</p>
+    <div class="content-window">
+        <h1>Welcome to My Website</h1>
+        <p>This is an example of a content window that sits on top of a GIF background. You can add any text or HTML elements here. This container will ensure that your content is easily readable while maintaining the visual effect of the GIF background.</p>
+        <p>Here's some more content to demonstrate scrolling:</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
 </body>
 </html>
