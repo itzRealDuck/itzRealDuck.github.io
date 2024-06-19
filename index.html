@@ -53,6 +53,12 @@
         .music-header {
             margin-bottom: 20px; /* Space below the header */
         }
+        .control-container {
+            width: 100%; /* Full width */
+            display: flex; /* Flex layout */
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+        }
         .play-pause-btn {
             width: 2rem;
             height: 2rem;
@@ -60,7 +66,6 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            margin-top: 10px; /* Space above the buttons */
         }
         .play-pause-btn:hover {
             background-color: #555; /* Darker background color on hover */
@@ -69,8 +74,8 @@
             display: block; /* Ensures SVG icons behave as blocks */
         }
         .slider {
-            width: 100%; /* Take up full width */
-            margin-top: 10px; /* Space above the slider */
+            flex: 1; /* Take up remaining space */
+            margin-left: 10px; /* Space between button and slider */
         }
     </style>
 </head>
@@ -81,8 +86,7 @@
         <div class="music-player">
             <div class="music-controls">
                 <h2 class="music-header">Music Player</h2>
-                <div>
-                    <audio id="audio" src="'everything-stays'-from-adventure-time-with-lyrics-[extended-ve-made-with-Voicemod.mp3"></audio>
+                <div class="control-container">
                     <span class="play-pause-btn" onclick="playPause()">
                         <!-- Play Icon SVG -->
                         <svg id="playIcon" class="play-pause-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -93,8 +97,8 @@
                             <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
                         </svg>
                     </span>
+                    <input type="range" id="seekSlider" class="slider" min="0" max="100" value="0" step="1" onchange="seekAudio()">
                 </div>
-                <input type="range" id="seekSlider" class="slider" min="0" max="100" value="0" step="1" onchange="seekAudio()">
             </div>
         </div>
     </div>
