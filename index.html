@@ -87,6 +87,10 @@
             <div class="music-controls">
                 <h2 class="music-header">Music Player</h2>
                 <div class="control-container">
+                    <audio id="audio">
+                        <source src="everything-stays-from-adventure-time-with-lyrics-extended-ve-made-with-Voicemod.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
                     <span class="play-pause-btn" onclick="playPause()">
                         <!-- Play Icon SVG -->
                         <svg id="playIcon" class="play-pause-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -97,8 +101,8 @@
                             <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
                         </svg>
                     </span>
-                    <input type="range" id="seekSlider" class="slider" min="0" max="100" value="0" step="1" onchange="seekAudio()">
                 </div>
+                <input type="range" id="seekSlider" class="slider" min="0" max="100" value="0" step="1" onchange="seekAudio()">
             </div>
         </div>
     </div>
