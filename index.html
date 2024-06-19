@@ -46,9 +46,10 @@
             border: 2px solid #FF4500; /* Border color and width */
             border-radius: 10px; /* Rounded corners */
             padding: 20px; /* Padding around the controls */
-            display: flex;
-            flex-direction: column; /* Stack items vertically */
-            align-items: center; /* Center items horizontally */
+            display: flex; /* Use flexbox for layout */
+            justify-content: center; /* Center items horizontally */
+            align-items: center; /* Center items vertically */
+            flex-wrap: wrap; /* Allow items to wrap if necessary */
         }
         .play-pause-btn {
             width: 2rem;
@@ -57,7 +58,7 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            margin-bottom: 10px; /* Spacing between button and slider */
+            margin-right: 10px; /* Margin between button and slider */
         }
         .play-pause-btn:hover {
             background-color: #555; /* Darker background color on hover */
@@ -66,7 +67,7 @@
             display: block; /* Ensures SVG icons behave as blocks */
         }
         .slider {
-            width: 100%; /* Take up full width */
+            flex: 1; /* Take up remaining space */
             margin-top: 10px; /* Space above the slider */
         }
     </style>
@@ -126,6 +127,3 @@
     </script>
 </body>
 </html>
-
-</html>
-
