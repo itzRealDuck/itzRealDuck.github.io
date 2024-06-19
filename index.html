@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Background GIF with Music Player</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHgSpz1m9FL3W8nq4ZszT3FRXOq7qu5W7/ZvF2EnP7TtKhfC5/X/Y8OxuOF4SkNfXvHhS3vw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
-            background-image: url('adventuretime.jpg');
+            background-image: url('path/to/your/image.gif');
             background-size: cover; /* Adjusts the background size */
             background-repeat: no-repeat; /* Prevents the GIF from repeating */
             background-position: center center; /* Centers the background */
@@ -23,7 +22,7 @@
             font-family: 'JetBrains Mono', monospace; /* Set font to JetBrains Mono */
         }
         .content-window {
-            background-color: rgb(15,15,15); /* Semi-transparent dark grey */
+            background-color: rgba(46, 46, 46, 0.9); /* Semi-transparent dark grey */
             border: 1px solid #FF4500; /* Accent color border */
             border-radius: 10px; /* Rounded corners */
             padding: 20px; /* Inner padding */
@@ -47,6 +46,9 @@
             color: #FF4500;
             cursor: pointer;
             transition: color 0.3s;
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
         }
         .play-pause-btn:hover {
             color: #FFD700;
@@ -60,10 +62,8 @@
 <body>
     <div class="content-window">
         <h1>Welcome to My Website</h1>
-        <p>I Am A (almost) 14 Year old hobby programmer! <\p>      
-        <p> I am Intrested in: Physics, Maths, Programming, Linux, and IT in General <\p>
-        <p>  When i am not coding, i am usually watching adventure time! <\p>
-             <div class="music-player">
+        <p>This is an example of a content window that sits on top of a GIF background. You can add any text or HTML elements here. This container will ensure that your content is easily readable while maintaining the visual effect of the GIF background.</p>
+        <div class="music-player">
             <h2>Music Player</h2>
             <audio id="audio" src="path/to/your/audio.mp3"></audio>
             <span id="playPauseBtn" class="play-pause-btn" onclick="playPause()">
@@ -82,6 +82,8 @@
     <script>
         const audio = document.getElementById('audio');
         const playPauseBtn = document.getElementById('playPauseBtn');
+        const playIcon = document.getElementById('playIcon');
+        const pauseIcon = document.getElementById('pauseIcon');
         const seekSlider = document.getElementById('seekSlider');
 
         audio.addEventListener('timeupdate', updateSeekSlider);
@@ -89,12 +91,12 @@
         function playPause() {
             if (audio.paused) {
                 audio.play();
-                playPauseBtn.classList.remove('fa-play');
-                playPauseBtn.classList.add('fa-pause');
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
             } else {
                 audio.pause();
-                playPauseBtn.classList.remove('fa-pause');
-                playPauseBtn.classList.add('fa-play');
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
             }
         }
 
