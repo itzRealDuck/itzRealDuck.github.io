@@ -1,2 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background GIF with Music Player</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHgSpz1m9FL3W8nq4ZszT3FRXOq7qu5W7/ZvF2EnP7TtKhfC5/X/Y8OxuOF4SkNfXvHhS3vw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background-image: url('adventuretime.jpg');
+            background-size: cover; /* Adjusts the background size */
+            background-repeat: no-repeat; /* Prevents the GIF from repeating */
+            background-position: center center; /* Centers the background */
+            background-attachment: fixed; /* Keeps the background fixed during scrolling */
+            height: 100vh; /* Ensures the body height covers the viewport */
+            margin: 0; /* Removes default margin */
+            overflow: hidden; /* Optional: prevents scrolling */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #F0F0F0; /* Default text color */
+            font-family: 'JetBrains Mono', monospace; /* Set font to JetBrains Mono */
+        }
+        .content-window {
+            background-color: rgb(15,15,15); /* Semi-transparent dark grey */
+            border: 1px solid #FF4500; /* Accent color border */
+            border-radius: 10px; /* Rounded corners */
+            padding: 20px; /* Inner padding */
+            max-width: 80%; /* Maximum width of the window */
+            max-height: 80%; /* Maximum height of the window */
+            overflow-y: auto; /* Scrollbar for overflow content */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: adds a shadow for depth */
+        }
+        h1, p {
+            margin: 0 0 10px 0; /* Margin for spacing */
+        }
+        a {
+            color: #FF4500; /* Accent color for links */
+        }
+        .music-player {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .play-pause-btn {
+            font-size: 2rem;
+            color: #FF4500;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .play-pause-btn:hover {
+            color: #FFD700;
+        }
+        .slider {
+            width: 100%;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-window">
+        <h1>Welcome to My Website</h1>
+        <p>I Am A (almost) 14 Year old hobby programmer! <\p>      
+        <p> I am Intrested in: Physics, Maths, Programming, Linux, and IT in General <\p>
+        <p>  When i am not coding, i am usually watching adventure time! <\p>
+             <div class="music-player">
+            <h2>Music Player</h2>
+            <audio id="audio" src="'everything-stays'-from-adventure-time-with-lyrics-[extended-ve-made-with-Voicemod.mp3"></audio>
+            <i id="playPauseBtn" class="fas fa-play play-pause-btn" onclick="playPause()"></i>
+            <input type="range" id="seekSlider" class="slider" min="0" max="100" value="0" step="1" onchange="seekAudio()">
+        </div>
+    </div>
+    <script>
+        const audio = document.getElementById('audio');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const seekSlider = document.getElementById('seekSlider');
 
+        audio.addEventListener('timeupdate', updateSeekSlider);
+
+        function playPause() {
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.classList.remove('fa-play');
+                playPauseBtn.classList.add('fa-pause');
+            } else {
+                audio.pause();
+                playPauseBtn.classList.remove('fa-pause');
+                playPauseBtn.classList.add('fa-play');
+            }
+        }
+
+        function updateSeekSlider() {
+            const value = (100 / audio.duration) * audio.currentTime;
+            seekSlider.value = value;
+        }
+
+        function seekAudio() {
+            const seekTo = audio.duration * (seekSlider.value / 100);
+            audio.currentTime = seekTo;
+        }
+    </script>
+</body>
+</html>
 
