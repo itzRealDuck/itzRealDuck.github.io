@@ -22,7 +22,7 @@
             font-family: 'JetBrains Mono', monospace; /* Set font to JetBrains Mono */
         }
         .content-window {
-            background-color: rgba(15, 15, 15, 1.0); /* Semi-transparent dark grey */
+            background-color: rgba(15, 15, 15, 0.8); /* Semi-transparent dark grey */
             border: 1px solid #FF4500; /* Accent color border */
             border-radius: 10px; /* Rounded corners */
             padding: 20px; /* Inner padding */
@@ -67,6 +67,7 @@
         }
         .slider {
             width: 100%; /* Take up full width */
+            margin-top: 10px; /* Space above the slider */
         }
     </style>
 </head>
@@ -93,36 +94,38 @@
         </div>
     </div>
     <script>
-         const audio = document.getElementById('audio');
-    const playPauseBtn = document.querySelector('.play-pause-btn');
-    const playIcon = document.getElementById('playIcon');
-    const pauseIcon = document.getElementById('pauseIcon');
-    const seekSlider = document.getElementById('seekSlider');
+        const audio = document.getElementById('audio');
+        const playPauseBtn = document.querySelector('.play-pause-btn');
+        const playIcon = document.getElementById('playIcon');
+        const pauseIcon = document.getElementById('pauseIcon');
+        const seekSlider = document.getElementById('seekSlider');
 
-    audio.addEventListener('timeupdate', updateSeekSlider);
+        audio.addEventListener('timeupdate', updateSeekSlider);
 
-    function playPause() {
-        if (audio.paused) {
-            audio.play();
-            playIcon.style.display = 'none';
-            pauseIcon.style.display = 'block';
-        } else {
-            audio.pause();
-            playIcon.style.display = 'block';
-            pauseIcon.style.display = 'none';
+        function playPause() {
+            if (audio.paused) {
+                audio.play();
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+            } else {
+                audio.pause();
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+            }
         }
-    }
 
-    function updateSeekSlider() {
-        const value = (100 / audio.duration) * audio.currentTime;
-        seekSlider.value = value;
-    }
+        function updateSeekSlider() {
+            const value = (100 / audio.duration) * audio.currentTime;
+            seekSlider.value = value;
+        }
 
-    function seekAudio() {
-        const seekTo = audio.duration * (seekSlider.value / 100);
-        audio.currentTime = seekTo;
-    }
+        function seekAudio() {
+            const seekTo = audio.duration * (seekSlider.value / 100);
+            audio.currentTime = seekTo;
+        }
     </script>
 </body>
+</html>
+
 </html>
 
