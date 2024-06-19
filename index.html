@@ -47,8 +47,11 @@
             border-radius: 10px; /* Rounded corners */
             padding: 20px; /* Padding around the controls */
             display: flex; /* Use flexbox for layout */
-            justify-content: space-between; /* Spacing between items */
-            align-items: center; /* Center items vertically */
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center items horizontally */
+        }
+        .music-header {
+            margin-bottom: 20px; /* Space below the header */
         }
         .play-pause-btn {
             width: 2rem;
@@ -57,6 +60,7 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
+            margin-top: 10px; /* Space above the buttons */
         }
         .play-pause-btn:hover {
             background-color: #555; /* Darker background color on hover */
@@ -65,8 +69,8 @@
             display: block; /* Ensures SVG icons behave as blocks */
         }
         .slider {
-            flex: 1; /* Take up remaining space */
-            margin-left: 10px; /* Margin between button and slider */
+            width: 100%; /* Take up full width */
+            margin-top: 10px; /* Space above the slider */
         }
     </style>
 </head>
@@ -76,7 +80,7 @@
         <p>This is an example of a content window that sits on top of a GIF background. You can add any text or HTML elements here. This container will ensure that your content is easily readable while maintaining the visual effect of the GIF background.</p>
         <div class="music-player">
             <div class="music-controls">
-                <h2 style="margin: 0;">Music Player</h2>
+                <h2 class="music-header">Music Player</h2>
                 <div>
                     <audio id="audio" src="'everything-stays'-from-adventure-time-with-lyrics-[extended-ve-made-with-Voicemod.mp3"></audio>
                     <span class="play-pause-btn" onclick="playPause()">
@@ -127,4 +131,3 @@
     </script>
 </body>
 </html>
-
